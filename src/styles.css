@@ -1,1 +1,421 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.bodycontainer{
+    display: flex;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navBar{
+    background: #F8F8FB;
+    height: 100vh;
+    width: 20%;
+    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoImgContainer{
+    width: auto;
+}
+
+.logoImgContainer > img{
+    width:auto;
+}
+
+.navLinksContainer{
+    padding-top: 15%;
+    height: 25%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 16px;
+}
+
+.navLinksContainer a{
+    color: black;
+    text-decoration: none;
+}
+
+.rightSide{
+    height: 100vh;
+    width:80%;
+    flex-direction: column;
+}
+
+.topBar{
+    width: auto;
+    height: 10%;
+    box-shadow: 1px 2px 11px 0px #94949440;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 40px;
+}
+
+.happyFaceContainer{
+    height: 40px;
+    width: 40px;
+    background-color: #FD633D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.happyFaceContainer i{
+    color: white;
+    font-size: 30px;
+}
+
+.userNameContainer a{
+    text-decoration: none;
+    color: black;
+    /* font-family: 'Rubik','Roboto Mono', monospace, sans-serif; */
+}
+
+.projectInfoBarContainer{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin-top: 20px;
+}
+
+.projectInfoBarContainer_Icons{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.singleIconContainer{
+    background: linear-gradient(201.18deg, #D3FFE7 3.14%, #EFFFF6 86.04%);
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    padding: 13px;
+}
+
+.singleIconContainer img{
+    width: 100%;
+    height: 100%;
+}
+
+.projectInfoBarContainer_description{
+    text-align: center;
+}
+
+.projectInfoBarContainer_description p{
+    font-size: 12px;
+    color: #ACACAC;
+}
+
+.projectInfoBarContainer_AddProject{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.addProjectIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    background-color: #67CB65;
+    border-radius: 50%;
+    color: white;
+}
+
+.seacrhContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    border-radius: 15px;
+    border-color: #ACACAC;
+}
+
+.seacrhContainer i{
+    position: absolute;
+    left: 40%;
+    top: 10px;
+    color: #ACACAC;
+}
+
+.seacrhContainer input{
+    height: 35px;
+    width: 100%;
+    border-radius: 15px;
+    width: 60%;
+    padding-left: 40px;
+}
+
+.bodyProjects{
+    width: 97%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.projectCards{
+    width: 100%;
+    height: 120px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+.projectCards_title{
+    width: 30%;
+}
+
+.reporteContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reporteOutCircle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.treinta{
+    background: conic-gradient( white 250deg,#12980F 0deg);
+}
+
+.sesenta{
+    background: conic-gradient( white 130deg, #12980F 0deg);
+}
+
+.cien{
+    background-color: #12980F;
+}
+
+.reporteInsideCircle{
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stateContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stateContainer p:last-child{
+    color: #43BE83;
+}
+
+.projectCards i{
+    font-size: 35px;
+    color: #5041BC;
+}
+
+.paginationContainer{
+    width: 97%;
+    height: 10%;
+    font-size: 13px;
+    color: #333333;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding-right: 40px;
+}
+
+.paginationContainer i{
+    font-size: 25px;
+    color: #504f4f;
+}
+
+
+@media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+
+    .navBar{
+        height: 10%;
+        width: 100%;
+        padding-top: 0;
+        flex-direction: row;
+    }
+
+    .logoImgContainer{
+        padding: 10px;
+        width: 20%;
+    }
+
+    .navLinksContainer{
+        padding-top: 15%;
+        height: 50px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: end;
+        font-size: 12px;
+        padding: 0;
+    }
+
+    .rightSide{
+        width:100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .topBar{
+        padding-right: 5px;
+    }
+
+    .happyFaceContainer{
+        width: 25px;
+        height: 25px;
+    }
+
+    .happyFaceContainer i{
+        font-size: 15px;
+    }
+    
+    .userNameContainer a{
+        font-size: 15px;
+    }
+
+
+
+    .projectInfoBarContainer_Icons{
+        width: 25%;
+        gap: 5px;
+        margin-left: 20px
+    }
+
+    .projectInfoBarContainer_AddProject{
+        font-size: 12px;    
+    }
+    
+    .addProjectIcon{
+        height: 25px;
+        width: 25px;
+    }
+
+}
+
+
+@media (min-width: 320px) and (max-width: 520px){
+
+    .happyFaceContainer{
+        width: 20px;
+        height: 20px;
+    }
+
+    .happyFaceContainer i{
+        font-size: 12px;
+    }
+    
+    .userNameContainer a{
+        font-size: 12px;
+    }
+
+    .projectInfoBarContainer{
+        gap:10px;
+    }
+    
+    .projectInfoBarContainer_Icons{
+        flex-direction: column;
+        justify-content: start;
+    }
+    
+    .singleIconContainer{
+        background: linear-gradient(201.18deg, #D3FFE7 3.14%, #EFFFF6 86.04%);
+        height: 35px;
+        width: 35px;
+        padding: 8px;    
+    }
+    
+    .projectInfoBarContainer_description{
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .projectInfoBarContainer_description p{
+        font-size: 10px;
+    }
+    
+    .projectInfoBarContainer_AddProject{
+        flex-direction: column;
+        justify-content: start;
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .projectInfoBarContainer_AddProject h3{
+        text-align: center;
+    }
+
+    .bodyProjects{
+        height: 50vh; 
+    }
+    
+    .projectCards{
+        padding: 10px;
+    }
+
+    
+    .projectCards_title{
+        font-size: 11px;
+    }
+
+    .reporteContainer{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .reporteOutCircle{
+        width: 60px;
+        height: 60px;
+    }
+
+    .reporteInsideCircle{
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+
+    .stateContainer{
+        font-size: 10px;
+    }
+
+    .projectCards i{
+        font-size: 30px;
+    }
+}

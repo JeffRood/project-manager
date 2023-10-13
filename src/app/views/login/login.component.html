@@ -1,0 +1,26 @@
+<div class="login-container" [style.background-image]="'url(https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?cs=srgb&dl=pexels-min-an-1629212.jpg&fm=jpg)'">
+  <div class="login-form">
+    <h2>Iniciar Sesión</h2>
+    <form (ngSubmit)="handleSubmit()" class="form">
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          placeholder="Correo Electrónico"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          id="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+      <button (click)="handleSubmit()">Iniciar Sesión</button>
+    </form>
+  </div>
+</div>

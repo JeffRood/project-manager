@@ -1,0 +1,79 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "name": "Proyecto Alfa",
+        "description": "Este es un proyecto de prueba",
+        "createdBy": 1, 
+        "createdDate": "2023-10-13T10:00:00.000Z",
+        "access": [1] 
+      }
+    ],
+    "roles": [
+      {
+        "id": 1,
+        "name": "admin",
+        "description": "Administrador del sistema",
+        "permissions": [ "create_project", "edit_project", "update_project", "delete_project", "create_task", "edit_task", "update_task", "delete_task"]
+      },
+      {
+        "id": 2,
+        "name": "user",
+        "description": "Usuario regular",
+        "permissions": ["create_task", "edit_task"]
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "username": "Jeffry Rodriguez",
+        "role": "admin"
+      }
+    ],
+    "tasks": [
+    
+    ],
+    "permissions": [
+      "create_project",
+      "edit_project",
+      "update_project",
+      "delete_project",
+      "create_task",
+      "edit_task",
+      "update_task",
+      "delete_task"
+    ],
+    "priorities": [
+      {
+        "id": 1,
+        "name": "low"
+      },
+      {
+        "id": 2,
+        "name": "medium"
+      },
+      {
+        "id": 3,
+        "name": "high"
+      }
+    ],
+    "taskStatuses": [
+      {
+        "id": 1,
+        "name": "To do"
+      },
+      {
+        "id": 2,
+        "name": "In progress"
+      },
+      {
+        "id": 3,
+        "name": "Closed"
+      },
+      {
+        "id": 4,
+        "name": "Frozen"
+      }
+    ]    
+  }
+  
