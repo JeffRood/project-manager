@@ -3,10 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ProjectComponent } from './project.component';
 import { ListComponent } from './list/list.component';
+import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   { path: '', component: ProjectComponent, children: [
     {  path: '', component: ListComponent },
+    {  path: 'detail/:id', component: DetailComponent },
+
   ] },
 ];
 

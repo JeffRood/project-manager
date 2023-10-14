@@ -1,0 +1,50 @@
+.mainContainer{
+    padding-left: 50px;
+}
+
+.routeContainer{
+    align-items: center;
+    height: 5%;
+    padding-top: 15px;
+    color: #585858;
+    font-size: 15px
+}
+
+.routeContainer a{
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.routeName p{
+    font-size: 27px;
+    font-weight: 600;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+.tasks-container {
+    list-style-type: none;
+    padding: 0;
+  }
+
+
+.generalTableroContainer{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.generalTableroContainer a{
+    padding-bottom: 8px;
+    padding-top: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.generalTableroContainer a:first-child{
+    border-bottom: 3px solid;
+    color: #782CE8;
+}

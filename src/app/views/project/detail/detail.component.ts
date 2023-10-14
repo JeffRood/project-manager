@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-detail',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent {
+
+    constructor() {}
 
 }

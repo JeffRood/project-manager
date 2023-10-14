@@ -166,6 +166,7 @@
 }
 
 .bodyProjects{
+    padding-top: 20px;
     width: 97%;
     height: 65vh;
     display: flex;
@@ -183,6 +184,7 @@
     align-items: center;
     padding-left: 30px;
     padding-right: 15px;
+    margin-left: 20px;
 }
 
 .projectCards_title{
@@ -419,3 +421,8 @@
         font-size: 30px;
     }
 }
+
+
+
+
+@import "~font-awesome/css/font-awesome.css";
