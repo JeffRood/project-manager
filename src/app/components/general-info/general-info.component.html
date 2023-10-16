@@ -1,1 +1,15 @@
-<p>general-info works!</p>
+  <div class="dateContainer">
+                <p class="dateTitle">Fecha:</p>
+                <p>{{project.createdDate  | date: 'dd/MM/yyyy'}}</p> 
+                <p class="dateTitle">Status:</p> 
+                <p><i class="fa fa-solid fa-circle"></i>{{status}}</p> 
+            </div>
+            <div class="createdContainer">
+                <p class="dateTitle">Creado por:</p>
+                <p>{{createBy!.username}}</p> 
+                <p class="dateTitle">Participantes:</p> 
+                <p>{{membersStrings}}</p> 
+            </div>
+            <div class="projectInfoContainer">
+                <p>{{project.description}}</p>
+            </div>

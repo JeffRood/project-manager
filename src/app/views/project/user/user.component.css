@@ -1,0 +1,19 @@
+.table {
+    width: 65%;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+

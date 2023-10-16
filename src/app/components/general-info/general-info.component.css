@@ -1,0 +1,49 @@
+.dateContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #F6F6F6;
+    width: auto;
+    font-size: medium;
+    border-radius: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.dateTitle{
+    font-weight: bold;
+}
+
+.dateContainer p i{
+    color: green;
+    font-size: 10px;
+    padding: 5px;
+}
+
+.createdContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    background-color: #F6F6F6;
+    width: auto;
+    font-size: medium;
+    border-radius: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.projectInfoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F6F6;
+    height: 200px;
+    width: 100%;
+    font-size: medium;
+    border-radius: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

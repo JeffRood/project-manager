@@ -1,56 +1,54 @@
         <div class="projectInfoBarContainer">
             
-        
-          <div class="projectInfoBarContainer_Icons"> 
-                <div class="singleIconContainer">
-                    <img src="../../../../assets/img/cantidad.png" alt="">
-                </div>
-                <div class="projectInfoBarContainer_description">
-                    <p>Cantidad de proyectos</p>
-                    <h2>14</h2>
-                </div>
-            </div>
-            <div class="projectInfoBarContainer_Icons"> 
-                <div class="singleIconContainer">
-                    <img src="../../../../assets/img/completados.png" alt="">
-                </div>
-                <div class="projectInfoBarContainer_description">
-                    <p>Completados</p>
-                    <h2>8</h2>
-                </div>
-            </div>
-            <div class="projectInfoBarContainer_Icons"> 
-                <div class="singleIconContainer">
-                    <img src="../../../../assets/img/activos.png" alt="">
-                </div>
-                <div class="projectInfoBarContainer_description">
-                    <p>Activos</p>
-                    <h2>6</h2>
-                </div>
-            </div>
 
-       <div class="projectInfoBarContainer_AddProject">
-                <h3>Agregar Proyecto</h3>
+                  <div class="projectInfoBarContainer_Icons"> 
+                        <div class="singleIconContainer">
+                            <img src="../../../../assets/img/cantidad.png" alt="">
+                        </div>
+                        <div class="projectInfoBarContainer_description">
+                            <p>Cantidad de proyectos</p>
+                            <h2>{{listProject.length}}</h2>
+                        </div>
+                    </div>
+                    <div class="projectInfoBarContainer_Icons"> 
+                        <div class="singleIconContainer">
+                            <img src="../../../../assets/img/completados.png" alt="">
+                        </div>
+                        <div class="projectInfoBarContainer_description">
+                            <p>Completados</p>
+                        <h2>{{ projectCompleted }}</h2>
+                        </div>
+                    </div>
+                    <div class="projectInfoBarContainer_Icons"> 
+                        <div class="singleIconContainer">
+                            <img src="../../../../assets/img/activos.png" alt="">
+                        </div>
+                        <div class="projectInfoBarContainer_description">
+                            <p>Activos</p>
+                            <h2>{{projectActives}}</h2>
+                        </div>
+                    </div>
+
+   
+   
+       <div class="projectInfoBarContainer_AddProject" (click)="createProject()">
+                <h3>Add Project</h3>
                 <div class="addProjectIcon">
                     <i class="fa fa-regular fa-plus"></i>
                 </div>
-            </div>
+        </div>
      
 
             </div>
 
             
             <div class="bodyProjects">
-                  <div (click)="navigateToProject('1')">
-                    <app-project-item></app-project-item>
-                  </div>
-               <div (click)="navigateToProject('1')">
-                    <app-project-item></app-project-item>
-                  </div>
-                  <div (click)="navigateToProject('1')">
-                    <app-project-item></app-project-item>
-                  </div>
-                  <div (click)="navigateToProject('1')">
-                    <app-project-item></app-project-item>
-                  </div>
+
+             <div *ngFor="let project of listProject" (click)="navigateToProject(project.id)">
+                <app-project-item [project]="project" [status]="status[project.status]"></app-project-item>
             </div>
+
+            </div>
+
+
+            

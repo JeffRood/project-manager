@@ -3,15 +3,22 @@
       <div class="mainContainer"> 
             <div class="routeContainer">
                 <a href="">Proyectos</a><i class="fa fa-solid fa-angle-right"></i>
-                <a href=""> Amazonia</a>
+                <a href="">{{project!.name}} </a>
             </div>
             <div class="routeName">
-                <p>Amazonia</p>
+                <p>{{project!.name}}</p>
             </div>
-               <div class="generalTableroContainer">
-                <a>General</a>
-                <a>Tablero</a>
+
+             <div class="tabContainer">
+                <a (click)="tabGeneral(1)" [ngClass]="{'activo': isInGeneral, 'inactivo': !isInGeneral}">General</a>
+                <a (click)="tabGeneral(2)" [ngClass]="{'activo': !isInGeneral, 'inactivo': isInGeneral}">Board</a>
             </div>
+
+            <div class="bodyContainerTabs">
+                <app-general-info [project]="project!" [status]="status[project!.status]" [createBy]="createBy" [memberProject]="memberProject" *ngIf="isInGeneral"> </app-general-info>
+                <app-board [project]="project!" [priorityList]="priority" [memberProjectList]="memberProject" (updateData)="updateStatusTask($event)" (createTask)="createTask($event)" *ngIf="!isInGeneral"></app-board>
+            </div>
+
         </div>
 
         <div>

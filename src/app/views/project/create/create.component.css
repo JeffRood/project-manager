@@ -1,0 +1,87 @@
+/* HOME */
+.container_main_home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    font-family: "Poppins", sans-serif;
+  
+  }
+  .container-create_project{
+    width: 65%;
+    height: 85%;
+    padding: 2rem;
+    background-color: #F6F6F6;
+    border-radius: 15px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .container-create_project h2{
+    color: 32264D;
+    font-weight: 600;
+    border-bottom: 2px solid #E6E6F0;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  .dv-home_info{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .dv-home_name{
+    font-size: 0.9rem;
+    color: #4E4958;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .dv-home_name input{
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 2px solid #E6E6F0;
+  }
+  .dv-home_name textarea{
+    resize: none;
+    height: 6rem;
+    border: 2px solid #E6E6F0;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  .dv-home_name select{
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    
+    font-size: 1rem;
+    border: 2px solid #E6E6F0;
+  }
+  .btn-home_save_event{
+    background-color: #04D361;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+
+  .my-custom-select {
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    color: #333;
+  }
+
+  

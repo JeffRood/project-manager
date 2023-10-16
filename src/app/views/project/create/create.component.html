@@ -1,0 +1,42 @@
+<div class="projectInfoBarContainer" style="display: block;">
+  <main>
+    <section class="container_main_home">
+      <section class="container-create_project">
+        <h2>Create Project</h2>
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+          
+            
+            
+            <div class="dv-home_name">
+              <label for="home_name_id">Name</label>
+              <input type="text" name="name" id="home_name_id" formControlName="name">
+            </div>
+
+            
+            
+            <div class="dv-home_name">
+              <label for="home_description_id">Description</label>
+              <textarea name="description" id="home_description_id" cols="30" rows="10" formControlName="description"></textarea>
+            </div>
+
+
+
+
+           <!-- <div class="dv-home_name">
+                  <label for="home_select_id">Users</label>
+                  <select name="home_select_project" id="home_select_id" multiple>
+                      <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
+                    <option value="option1">Opcion 1</option>
+                    <option value="option2">Opcion 2</option>
+                  </select>
+              </div> -->
+
+
+
+            <button class="btn-home_save_event" type="submit">Crear </button>
+          
+        </form>
+      </section>
+    </section>
+  </main>
+</div>

@@ -9,7 +9,16 @@ import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectItemComponent } from 'src/app/components/project-item/project-item.component';
 import { NgChartsModule } from 'ng2-charts';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ProjectService } from 'src/app/services/ProjectService';
+import { SharedService } from 'src/app/services/SharedService';
+import { CreateComponent } from './create/create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
+import { NgSelectModule } from '@ng-select/ng-select';
+import { GeneralInfoComponent } from 'src/app/components/general-info/general-info.component';
+import { BoardComponent } from 'src/app/components/board/board.component';
+import { UserComponent } from './user/user.component';
+
 @NgModule({
   declarations: [
     MenuComponent,
@@ -17,22 +26,26 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     DetailComponent,
     ListComponent, 
-    ProjectItemComponent
-  ],
-  exports: [
-    MenuComponent,
-    ProjectComponent,
-    HeaderComponent,
-    DetailComponent,
-    ListComponent,
-    ProjectItemComponent
+    ProjectItemComponent, 
+    CreateComponent,
+    GeneralInfoComponent,
+    BoardComponent,
+    UserComponent
+
   ],
   imports: [
     CommonModule,
     ProjectRoutingModule,
     NgChartsModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule
+
+  ],
+  providers: [
+    ProjectService,
+    SharedService
   ]
 })
 export class ProjectModule { }

@@ -1,1 +1,138 @@
-<p>board works!</p>
+
+      <div class="bodyTablero">
+                <div class="todoContainer" cdkDropList [id]="'todo'" (cdkDropListDropped)="onTaskDrop($event)">
+                    <div class="bodyTableroTitles">
+                        <h3>To do</h3>
+                        <div class="addContainer"  data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                   
+                    <div class="bodyTableroCard" *ngFor="let td of todo" cdkDrag [cdkDragData]="td.id">
+                        <div class="titlePriorityContainer">
+                            <h4>{{td.title}}</h4>
+                            <div class="cardPriorityMedia">Media</div>
+                        </div>
+                        <div class="cardCreated">
+                            <p class="asignadaDateTitles">Asignada: </p>
+                            <p>Jeffry Rodriguez</p>
+                        </div>
+                        <div class="cardDate">
+                            <p class="asignadaDateTitles">Fecha creacion: </p>
+                            <p>{{td.createdDate | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="inProgressContainer" cdkDropList [id]="'inprogress'" (cdkDropListDropped)="onTaskDrop($event)">
+                    <div class="bodyTableroTitles">
+                        <h3>In progress</h3>
+                    </div>
+               <div class="bodyTableroCard" *ngFor="let pg of inProgress" cdkDrag [cdkDragData]="pg.id">
+                        <div class="titlePriorityContainer">
+                            <h4>{{pg.title}}</h4>
+                            <div class="cardPriorityMedia">Media</div>
+                        </div>
+                        <div class="cardCreated">
+                            <p class="asignadaDateTitles">Asignada: </p>
+                            <p>Jeffry Rodriguez</p>
+                        </div>
+                        <div class="cardDate">
+                            <p class="asignadaDateTitles">Fecha creacion: </p>
+                            <p>{{pg.createdDate | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="closedContainer" cdkDropList [id]="'closed'" (cdkDropListDropped)="onTaskDrop($event)">
+                    <div class="bodyTableroTitles">
+                        <h3>Closed</h3>
+                            </div>
+             <div class="bodyTableroCard" *ngFor="let cs of Closed" cdkDrag [cdkDragData]="cs.id">
+                        <div class="titlePriorityContainer">
+                            <h4>{{cs.title}}</h4>
+                            <div class="cardPriorityMedia">Media</div>
+                        </div>
+                        <div class="cardCreated">
+                            <p class="asignadaDateTitles">Asignada: </p>
+                            <p>Jeffry Rodriguez</p>
+                        </div>
+                        <div class="cardDate">
+                            <p class="asignadaDateTitles">Fecha creacion: </p>
+                            <p>{{cs.createdDate | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+                    </div>
+              
+                <div class="frozenContainer" cdkDropList [id]="'frozen'" (cdkDropListDropped)="onTaskDrop($event)">
+                    <div class="bodyTableroTitles">
+                        <h3>Frozen</h3>
+                    </div>
+                 <div class="bodyTableroCard" *ngFor="let fz of Frozen" cdkDrag [cdkDragData]="fz.id">
+                        <div class="titlePriorityContainer">
+                            <h4>{{fz.title}}</h4>
+                            <div class="cardPriorityMedia">Media</div>
+                        </div>
+                        <div class="cardCreated">
+                            <p class="asignadaDateTitles">Asignada: </p>
+                            <p>Jeffry Rodriguez</p>
+                        </div>
+                        <div class="cardDate">
+                            <p class="asignadaDateTitles">Fecha creacion: </p>
+                            <p>{{fz.createdDate | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+        
+        
+    </div> 
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New Task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="description" formControlName="description"></textarea>
+          </div>
+
+         <div class="mb-3">
+            <label for="description" class="col-form-label">Priority:</label>
+                <ng-select [items]="priorityList" 
+                bindLabel="name" 
+                bindValue="id" 
+                [formControlName]="'priority'">
+                </ng-select>
+          </div>
+
+                <div class="mb-3">
+            <label for="description" class="col-form-label">Users:</label>
+                <ng-select [items]="memberProjectList" 
+                bindLabel="fullName" 
+                bindValue="id" 
+                [multiple]="true"
+                [formControlName]="'assignedTo'">
+                </ng-select>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button *ngIf="!form.get('isEdit')!.value" type="button" class="btn btn-primary" (click)="onSubmit()">Create Task</button>
+        <button *ngIf="form.get('isEdit')!.value"  type="button" class="btn btn-primary" (click)="onSubmit()">Edit Task</button>
+        <button *ngIf="form.get('isEdit')!.value"  type="button" class="btn btn-danger" (click)="onSubmit()">Delete Task</button>
+
+      </div>
+    </div>
+  </div>
+</div>

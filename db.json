@@ -1,79 +1,197 @@
 {
-    "projects": [
-      {
-        "id": 1,
-        "name": "Proyecto Alfa",
-        "description": "Este es un proyecto de prueba",
-        "createdBy": 1, 
-        "createdDate": "2023-10-13T10:00:00.000Z",
-        "access": [1] 
-      }
-    ],
-    "roles": [
-      {
-        "id": 1,
-        "name": "admin",
-        "description": "Administrador del sistema",
-        "permissions": [ "create_project", "edit_project", "update_project", "delete_project", "create_task", "edit_task", "update_task", "delete_task"]
-      },
-      {
-        "id": 2,
-        "name": "user",
-        "description": "Usuario regular",
-        "permissions": ["create_task", "edit_task"]
-      }
-    ],
-    "users": [
-      {
-        "id": 1,
-        "username": "Jeffry Rodriguez",
-        "role": "admin"
-      }
-    ],
-    "tasks": [
-    
-    ],
-    "permissions": [
-      "create_project",
-      "edit_project",
-      "update_project",
-      "delete_project",
-      "create_task",
-      "edit_task",
-      "update_task",
-      "delete_task"
-    ],
-    "priorities": [
-      {
-        "id": 1,
-        "name": "low"
-      },
-      {
-        "id": 2,
-        "name": "medium"
-      },
-      {
-        "id": 3,
-        "name": "high"
-      }
-    ],
-    "taskStatuses": [
-      {
-        "id": 1,
-        "name": "To do"
-      },
-      {
-        "id": 2,
-        "name": "In progress"
-      },
-      {
-        "id": 3,
-        "name": "Closed"
-      },
-      {
-        "id": 4,
-        "name": "Frozen"
-      }
-    ]    
-  }
-  
+  "projects": [
+    {
+      "id": 1,
+      "name": "Proyecto Alfa",
+      "description": "Este es un proyecto de prueba",
+      "createdBy": 1,
+      "createdDate": "2023-10-13T10:00:00.000Z",
+      "access": [
+        1
+      ],
+      "status": 1,
+      "tasks": [
+        {
+          "id": 1,
+          "title": "primera Tarea",
+          "description": "Esta es la primera tarea",
+          "createdDate": "2023-10-13T10:00:00.000Z",
+          "assignedTo": null,
+          "status": 3,
+          "priority": 1
+        },
+        {
+          "id": 2,
+          "title": "Segunda Tarea",
+          "description": "Esta es la primera tarea",
+          "createdDate": "2023-10-13T10:00:00.000Z",
+          "assignedTo": null,
+          "status": 1,
+          "priority": 1
+        },
+        {
+          "id": 8715518,
+          "title": "tarea ",
+          "description": "valorala",
+          "createdDate": "2023-10-16T16:20:10.895Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 1,
+          "priority": 1
+        },
+        {
+          "id": 3447099,
+          "title": "new task",
+          "description": "hola",
+          "createdDate": "2023-10-16T16:24:01.374Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 1,
+          "priority": 2
+        },
+        {
+          "id": 1572581,
+          "title": "hi",
+          "description": "jheuek",
+          "createdDate": "2023-10-16T16:32:42.607Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 1,
+          "priority": 3
+        },
+        {
+          "id": 337293,
+          "title": "afa",
+          "description": "asfa",
+          "createdDate": "2023-10-16T16:33:06.657Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 1,
+          "priority": 1
+        },
+        {
+          "id": 7582731,
+          "title": "tarea",
+          "description": "hello",
+          "createdDate": "2023-10-16T16:33:40.239Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 1,
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "name": "proyecto spicy",
+      "description": "para poder controlar el mundo",
+      "createdDate": "2023-10-16T03:33:25.750Z",
+      "access": [
+        1
+      ],
+      "id": 5188171,
+      "createdBy": 1,
+      "status": 1,
+      "tasks": []
+    },
+    {
+      "name": "proyecto basora",
+      "description": "para poder controlar el mundo",
+      "createdDate": "2023-10-16T03:34:07.989Z",
+      "access": [
+        1
+      ],
+      "id": 6400929,
+      "createdBy": 1,
+      "status": 1,
+      "tasks": []
+    },
+    {
+      "name": "Proyecto veloster",
+      "description": "para controlar la fuerza del mundo ",
+      "createdDate": "2023-10-16T03:37:02.676Z",
+      "access": [
+        1
+      ],
+      "id": 2501101,
+      "createdBy": 1,
+      "status": 1,
+      "tasks": []
+    },
+    {
+      "name": "VERIZON",
+      "description": "Para conectar 2 mundo",
+      "createdDate": "2023-10-16T14:23:31.329Z",
+      "access": [
+        1
+      ],
+      "id": 777239,
+      "createdBy": 1,
+      "status": 1,
+      "tasks": []
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "admin",
+      "description": "Administrador del sistema"
+    },
+    {
+      "id": 2,
+      "name": "user",
+      "description": "Usuario regular"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Jeffry Rodriguez",
+      "role": "admin",
+      "email": "jf@gmail.com",
+      "password": "123456",
+      "fullName": "Jeffry Rodriguez"
+    }
+  ],
+  "StatusProject": [
+    "Inactive",
+    "Active",
+    "Completado"
+  ],
+  "priorities": [
+    {
+      "id": 1,
+      "name": "low"
+    },
+    {
+      "id": 2,
+      "name": "medium"
+    },
+    {
+      "id": 3,
+      "name": "high"
+    }
+  ],
+  "taskStatuses": [
+    {
+      "id": 1,
+      "name": "To do"
+    },
+    {
+      "id": 2,
+      "name": "In progress"
+    },
+    {
+      "id": 3,
+      "name": "Closed"
+    },
+    {
+      "id": 4,
+      "name": "Frozen"
+    }
+  ]
+}

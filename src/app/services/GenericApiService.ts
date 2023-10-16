@@ -5,28 +5,28 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class GenericApiService<T> {
+export class GenericApiService {
   private apiUrl = 'http://localhost:3000/';
   
   constructor(private http: HttpClient) {}
 
-  getAll(endPoint: string): Observable<T[]> {
+  getAll<T>(endPoint: string): Observable<T[]> {
     return this.http.get<T[]>(`${this.apiUrl}${endPoint}` );
   }
 
-  getOne(endPoint: string, id: number): Observable<T> {
+  getOne<T>(endPoint: string, id: number): Observable<T> {
     return this.http.get<T>(`${this.apiUrl}${endPoint}/${id}` );
   }
 
-  create(endPoint: string, data: T): Observable<T> {
+  create<T>(endPoint: string, data: T): Observable<T> {
     return this.http.post<T>(`${this.apiUrl}${endPoint}`, data);
   }
 
-  update(endPoint: string, id: number, data: T): Observable<T> {
+  update<T>(endPoint: string, id: number, data: T): Observable<T> {
     return this.http.put<T>(`${this.apiUrl}${endPoint}/${id}`, data);
   }
 
-  delete(endPoint: string, id: number): Observable<void> {
+  delete<T>(endPoint: string, id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}${endPoint}/${id}`);
   }
 }

@@ -1,0 +1,31 @@
+
+
+<div class="projectInfoBarContainer">
+  <main>
+    <section class="container_main_home">
+        <h2>User List</h2>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of users">
+      <td>{{item.username}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.role}}</td>
+
+    </tr>
+  </tbody>
+</table>
+   </section>
+  </main>
+</div>
+
+
+

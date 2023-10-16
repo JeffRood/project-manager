@@ -1,0 +1,125 @@
+
+.generalTableroContainer{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.generalTableroContainer a{
+    padding-bottom: 8px;
+    padding-top: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.generalTableroContainer a:first-child{
+    border-bottom: 3px solid;
+    color: #782CE8;
+}
+
+.bodyTablero{
+    width: 97%;
+    height: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+.todoContainer,
+.inProgressContainer,
+.closedContainer,
+.frozenContainer{
+    background-color: #F6F6F6;
+    width: 25%;
+    height: 95hv;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.bodyTableroTitles{
+    padding: 15px;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.addContainer{
+    background-color: #67CB65;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.bodyTableroCard{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color:#E0E4EA;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.titlePriorityContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardPriorityMedia,
+.cardPriorityAlta, 
+.cardPriorityBaja{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+}
+
+.cardPriorityBaja{
+    background-color: #67CB65;
+}
+.cardPriorityMedia{
+    background-color: #FF9533;
+}
+.cardPriorityAlta{
+    background-color: #E74444;
+}
+
+.cardCreated, 
+.cardDate{
+    display: flex;
+    justify-content: space-around;
+}
+.asignadaDateTitles{
+    color: #6C6C6C;
+}
+.bodyTableroCard p{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.custom-ng-select {
+    background-color: white;
+    border: 1px solid #ccc; /* Agrega un borde */
+    border-radius: 4px; /* Redondea las esquinas */
+    transition: border-color 0.2s; /* Agrega una transición al color del borde */
+  
+    /* Estilo cuando el <ng-select> está enfocado (hace que el borde sea más visible) */
+    &:focus {
+      border-color: #007bff;
+    }
+  }
