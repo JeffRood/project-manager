@@ -12,17 +12,8 @@
       "status": 1,
       "tasks": [
         {
-          "id": 1,
-          "title": "primera Tarea",
-          "description": "Esta es la primera tarea",
-          "createdDate": "2023-10-13T10:00:00.000Z",
-          "assignedTo": null,
-          "status": 3,
-          "priority": 1
-        },
-        {
           "id": 2,
-          "title": "Segunda Tarea",
+          "title": "Segunda Tarea 2",
           "description": "Esta es la primera tarea",
           "createdDate": "2023-10-13T10:00:00.000Z",
           "assignedTo": null,
@@ -30,131 +21,89 @@
           "priority": 1
         },
         {
-          "id": 8715518,
-          "title": "tarea ",
-          "description": "valorala",
-          "createdDate": "2023-10-16T16:20:10.895Z",
+          "id": 6261865,
+          "title": "tarea",
+          "description": "primera tarea",
+          "createdDate": null,
           "assignedTo": [
             1
           ],
-          "status": 1,
+          "status": null,
           "priority": 1
         },
         {
-          "id": 3447099,
-          "title": "new task",
-          "description": "hola",
-          "createdDate": "2023-10-16T16:24:01.374Z",
+          "id": 2284010,
+          "title": "valor",
+          "description": "valor",
+          "createdDate": null,
           "assignedTo": [
             1
           ],
-          "status": 1,
+          "status": null,
           "priority": 2
         },
         {
-          "id": 1572581,
-          "title": "hi",
-          "description": "jheuek",
-          "createdDate": "2023-10-16T16:32:42.607Z",
+          "id": 7781904,
+          "title": "valor",
+          "description": "ojafos",
+          "createdDate": "2023-10-16T20:42:57.126Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 2,
+          "priority": 2
+        },
+        {
+          "id": 3029783,
+          "title": "jesus",
+          "description": "jesus",
+          "createdDate": "2023-10-17T01:50:08.900Z",
           "assignedTo": [
             1
           ],
           "status": 1,
           "priority": 3
-        },
-        {
-          "id": 337293,
-          "title": "afa",
-          "description": "asfa",
-          "createdDate": "2023-10-16T16:33:06.657Z",
-          "assignedTo": [
-            1
-          ],
-          "status": 1,
-          "priority": 1
-        },
-        {
-          "id": 7582731,
-          "title": "tarea",
-          "description": "hello",
-          "createdDate": "2023-10-16T16:33:40.239Z",
-          "assignedTo": [
-            1
-          ],
-          "status": 1,
-          "priority": 1
         }
       ]
     },
     {
-      "name": "proyecto spicy",
-      "description": "para poder controlar el mundo",
-      "createdDate": "2023-10-16T03:33:25.750Z",
-      "access": [
-        1
-      ],
-      "id": 5188171,
-      "createdBy": 1,
-      "status": 1,
-      "tasks": []
-    },
-    {
-      "name": "proyecto basora",
-      "description": "para poder controlar el mundo",
-      "createdDate": "2023-10-16T03:34:07.989Z",
-      "access": [
-        1
-      ],
-      "id": 6400929,
-      "createdBy": 1,
-      "status": 1,
-      "tasks": []
-    },
-    {
       "name": "Proyecto veloster",
-      "description": "para controlar la fuerza del mundo ",
-      "createdDate": "2023-10-16T03:37:02.676Z",
+      "description": "para correr",
+      "createdDate": "2023-10-16T20:51:26.870Z",
       "access": [
         1
       ],
-      "id": 2501101,
-      "createdBy": 1,
-      "status": 1,
-      "tasks": []
-    },
-    {
-      "name": "VERIZON",
-      "description": "Para conectar 2 mundo",
-      "createdDate": "2023-10-16T14:23:31.329Z",
-      "access": [
-        1
-      ],
-      "id": 777239,
+      "id": 718669,
       "createdBy": 1,
       "status": 1,
       "tasks": []
     }
   ],
   "roles": [
-    {
-      "id": 1,
-      "name": "admin",
-      "description": "Administrador del sistema"
-    },
-    {
-      "id": 2,
-      "name": "user",
-      "description": "Usuario regular"
-    }
+    "admin",
+    "user"
   ],
   "users": [
     {
       "id": 1,
-      "username": "Jeffry Rodriguez",
+      "fullName": "Jeffry Rodriguez",
       "role": "admin",
       "email": "jf@gmail.com",
-      "password": "123456",
-      "fullName": "Jeffry Rodriguez"
+      "password": "123456"
+    },
+    {
+      "id": 4058955,
+      "fullName": "Jeffry Hernandez",
+      "email": "jeffryrodriguez@gmail.com",
+      "role": "user",
+      "password": "1234"
+    },
+    {
+      "id": 3587440,
+      "fullName": "Ramona Martinez",
+      "email": "rm@rm.com",
+      "role": "user",
+      "password": "123456"
     }
   ],
   "StatusProject": [

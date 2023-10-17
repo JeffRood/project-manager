@@ -19,7 +19,7 @@ export class CreateComponent implements OnInit {
   dropdownSettings = {
     singleSelection: false, 
     idField: 'id', 
-    textField: 'username', 
+    textField: 'fullName', 
     selectAllText: 'Select All',
     unSelectAllText: 'Unselect All',
     itemsShowLimit: 3, 
@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
         name: this.createForm.value.name,
         description: this.createForm.value.description,
         createdDate: fechaActual.toISOString(),
-        access:  [1],
+        access:  this.createForm.value.selectedUsers,
         id: this.random(), 
         createdBy: 1,
         status: 1,

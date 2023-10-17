@@ -15,8 +15,9 @@ export class GeneralInfoComponent  implements OnInit{
   @Input() memberProject:  User[] = [];
 
   membersStrings = ''
+  
   ngOnInit(): void {
-   this.membersStrings =  this.memberProject.map(participant => participant.username).join(', ') 
+   this.membersStrings =  this.memberProject.map(participant => participant.fullName).join(', ') 
   }
 
 }

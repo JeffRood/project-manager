@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ProjectService } from 'src/app/services/ProjectService';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/models/Project';
 import { SharedService } from 'src/app/services/SharedService';
 import { User } from 'src/app/models/User';
 import { forkJoin } from 'rxjs';
 import { Task } from 'src/app/models/Task';
 import { Priority } from 'src/app/models/Priority';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -23,9 +24,11 @@ export class DetailComponent implements OnInit  {
    memberProject: User[] = []
    priority: Priority[] = [];
 
-
+   isAdmin: boolean = false;
+   public userLogged: User| undefined = undefined; 
+ 
    isInGeneral = true;
-    constructor(private projectService: ProjectService, private route: ActivatedRoute, private sharedService :SharedService) {}
+    constructor(private router: Router, private projectService: ProjectService, private route: ActivatedRoute, private sharedService :SharedService) {}
        
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
@@ -35,11 +38,25 @@ export class DetailComponent implements OnInit  {
           this.loadData(id)
         }
       });
+
+
+          
+  const userJSON = localStorage.getItem('username');
+  if (userJSON) {
+      this.userLogged = JSON.parse(userJSON); 
+
+  } 
+  this.isAdmin = this.userLogged?.role == 'admin';
+
+    }
+
+
+
+    navigateTo(url: string) {
+      this.router.navigate([`${url}`]); 
     }
 
     async loadData(projectId: number) {
-    
-    
       forkJoin({
         project: this.projectService.getProject(projectId),
         status: this.sharedService.getAllStatus(),
@@ -65,10 +82,7 @@ export class DetailComponent implements OnInit  {
     }
 
     updateStatusTask(data: { task: Task, index: number }) {
-       debugger;
-       
         this.project!.tasks[data.index] = data.task;
-
         this.projectService.updateProject(this.project!.id, this.project!).subscribe(x => x)
         this.loadData(this.project!.id);
        
@@ -80,6 +94,42 @@ export class DetailComponent implements OnInit  {
        this.projectService.updateProject(this.project!.id, this.project!).subscribe(x => x)
        this.loadData(this.project!.id);
       
+   }
+
+   deleteTask(data: { taskId: number }) { 
+
+    let index = this.project!.tasks.findIndex(x => x.id == data.taskId);
+     this.project!.tasks.splice(index, 1)
+     this.projectService.updateProject(this.project!.id, this.project!).subscribe(x => x)
+     this.loadData(this.project!.id);
+
+   }
+
+   eliminarProyecto() {
+
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.projectService.deleteProject(this.project!.id).subscribe(x => x)
+      this.router.navigate(['/projects/list'])
+      Swal.fire(
+        'Deleted!',
+        'Your Project has been deleted.',
+        'success'
+      )
+    }
+
+  })
+
+
    }
 
 

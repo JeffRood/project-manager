@@ -6,6 +6,8 @@ import { Priority } from 'src/app/models/Priority';
 import { Project } from 'src/app/models/Project';
 import { Task } from 'src/app/models/Task';
 import { User } from 'src/app/models/User';
+import { SharedService } from 'src/app/services/SharedService';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-board',
@@ -20,34 +22,59 @@ export class BoardComponent implements OnInit {
   
   @Output() updateData = new EventEmitter<{task:Task, index: number }>();
   @Output() createTask = new EventEmitter<{task:Task}>();
+  @Output() deleteTask = new EventEmitter<{taskId:number}>();
 
   
   form: FormGroup;
-
-  constructor(private fb: FormBuilder, private modalService: NgbModal) {
+  constructor(private fb: FormBuilder, public sharedService :SharedService) {
+    
+    
     this.form = this.fb.group({
-      isEdit: false,
+      isEdit: [false],
+      id: [0],
       title: ['', Validators.required],
       description: ['', Validators.required],
       createdDate: [new Date().toISOString()], 
       assignedTo: [[]],
       status: [1],
-      priority: [1],
+      priority: [1, Validators.required],
     });
   }
   todo: Task[] = [];
   inProgress: Task[] = [];
   Closed: Task[] = [];
   Frozen: Task[] = [];
+  isAdmin: boolean = false;
+  public userLogged: User| undefined = undefined; 
 
  ngOnInit(): void {
+
+  const userJSON = localStorage.getItem('username');
+  if (userJSON) {
+      this.userLogged = JSON.parse(userJSON); 
+
+  } 
+  this.isAdmin = this.userLogged?.role == 'admin';
+
+
     this.loadData()
     console.log(this.priorityList);
     
-    debugger;
-
  }
 
+ getFullName(assignedTo: any): string | undefined {
+  if (assignedTo) {
+    const user = this.memberProjectList.find(x => x.id === assignedTo[0]);
+    debugger;
+    return user?.fullName;
+  }
+  return 'N/A';
+ 
+}
+getPriority(priority: number): string | undefined {
+  const Priority = this.priorityList.find(x => x.id === priority);
+  return Priority?.name;
+}
  loadData() {
 
   this.project.tasks.map(x => {
@@ -151,6 +178,7 @@ export class BoardComponent implements OnInit {
       list.splice(event.previousIndex, 1)
       newList.push(task)
 
+
 }
 
 
@@ -165,11 +193,18 @@ onSubmit() {
       status: this.form.value.status,
       priority: this.form.value.priority,
     };
-
+debugger;
     this.createTask.emit({task: newTask} );
     this.todo.push(newTask)
     this.closeModal();
-    this.form.reset();
+    this.resetForm();
+
+    Swal.fire(
+      'Created!',
+      'Your Task has been Created.',
+      'success'
+    )
+  
   }
 }
 
@@ -177,13 +212,148 @@ random(min = 1, max = 9999999) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
  }
 
- closeModal() {
-  const bottom = document.getElementById('closeModal');
 
- if (bottom) {
-      bottom.click();
-    } 
+ deletedTask() {
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let newList = this.todo;
+      switch (this.form.value.priority) {
+        case 1:
+          break;
+        case 2:
+          newList = this.inProgress;
+              break;
+         case 3: 
+         newList = this.Closed;
+            break;
+         case 4:
+          newList = this.Frozen;
+              break;
+        default:
+          break;
+      }
+      const taskIndex = newList.findIndex(x => x.id == this.form.value.id);
+      this.deleteTask.emit({taskId: this.form.value.id } );
+      newList.splice(taskIndex, 1);
+      this.closeModal();
+      this.resetForm();
+      Swal.fire(
+        'Deleted!',
+        'Your Task has been deleted.',
+        'success'
+      )
+    }
+  })
+  
+ }
+
+ callUpdateTask() {
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, Update it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let newList = this.todo;
+      switch (this.form.value.priority) {
+        case 1:
+          break;
+        case 2:
+          newList = this.inProgress;
+              break;
+         case 3: 
+         newList = this.Closed;
+            break;
+         case 4:
+          newList = this.Frozen;
+              break;
+        default:
+          break;
+      }
+      const taskIndex = newList.findIndex(x => x.id == this.form.value.id);
+      const updateTask = {
+        id: this.form.value.id, 
+        title: this.form.value.title,
+        description: this.form.value.description,
+        createdDate: this.form.value.createdDate,
+        assignedTo: this.form.value.assignedTo,
+        status: this.form.value.status,
+        priority: this.form.value.priority,
+      };
+        newList[taskIndex] = updateTask;
+      this.updateData.emit({task: updateTask, index: taskIndex});
+      this.closeModal();  
+     this.resetForm();
+
+      Swal.fire(
+        'Deleted!',
+        'Your Task has been Updated.',
+        'success'
+      )
+    }
+  })
+}
+
+resetForm() {
+  this.form.reset();
+  const newValues = {
+    isEdit: false,
+    createdDate: new Date().toISOString(), 
+    status: 1
+  };
+  this.form.patchValue(newValues);
+}
+
+ pressToEdit(task: Task) {
+
+  const newValues = {
+    isEdit: true,
+    id: task.id,
+    title: task.title,
+    description: task.description,
+    createdDate: task.createdDate, 
+    assignedTo: task.assignedTo,
+    status: task.status,
+    priority: task.priority,
+  };
+
+  this.form.patchValue(newValues);
+  this.openModal(false)
 
  }
 
+
+
+ openModal(reset = true) {
+  if (reset) {
+    this.resetForm();
+  }
+  const bottom = document.getElementById('openModal');
+ if (bottom) {
+      bottom.click();
+    } 
+ }
+
+ closeModal() {
+  const bottom = document.getElementById('closeModal');
+  this.resetForm();
+ if (bottom) {
+      bottom.click();
+    } 
+ }
+ 
 }

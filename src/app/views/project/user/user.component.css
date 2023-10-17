@@ -1,5 +1,5 @@
 .table {
-    width: 65%;
+    width: 70rem;
     margin-top: 10px;
     margin-left: 20px;
     border-collapse: collapse;
@@ -17,3 +17,19 @@
     background-color: #f2f2f2;
   }
 
+
+  .container_main_home h2{
+    margin: 1rem 4rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+ }
+
+ .projectInfoBarContainer_AddProject {
+    align-items:end;
+ }
+
+ .projectInfoBarContainer_AddProject div:first-child{
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+ }

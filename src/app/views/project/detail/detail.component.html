@@ -2,21 +2,32 @@
 
       <div class="mainContainer"> 
             <div class="routeContainer">
-                <a href="">Proyectos</a><i class="fa fa-solid fa-angle-right"></i>
-                <a href="">{{project!.name}} </a>
+                <a (click)="navigateTo('/project/list')">Proyectos</a><i class="fa fa-solid fa-angle-right"></i>
+                <a> {{ project?.name ? project?.name : '' }} </a>
             </div>
             <div class="routeName">
-                <p>{{project!.name}}</p>
+                <p> {{project?.name ? project?.name : ''}}</p>
             </div>
 
+
+<div class="dropdown dropdownConfig" *ngIf="isAdmin">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-cog ml-auto"></i> 
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" (click)="eliminarProyecto()">Eliminar Proyecto</a>
+  </div>
+</div>
              <div class="tabContainer">
                 <a (click)="tabGeneral(1)" [ngClass]="{'activo': isInGeneral, 'inactivo': !isInGeneral}">General</a>
                 <a (click)="tabGeneral(2)" [ngClass]="{'activo': !isInGeneral, 'inactivo': isInGeneral}">Board</a>
             </div>
 
-            <div class="bodyContainerTabs">
+
+            <div class="bodyContainerTabs" *ngIf="project">
+            
                 <app-general-info [project]="project!" [status]="status[project!.status]" [createBy]="createBy" [memberProject]="memberProject" *ngIf="isInGeneral"> </app-general-info>
-                <app-board [project]="project!" [priorityList]="priority" [memberProjectList]="memberProject" (updateData)="updateStatusTask($event)" (createTask)="createTask($event)" *ngIf="!isInGeneral"></app-board>
+                <app-board [project]="project!" [priorityList]="priority" [memberProjectList]="memberProject" (updateData)="updateStatusTask($event)" (createTask)="createTask($event)" (deleteTask)="deleteTask($event)" *ngIf="!isInGeneral"></app-board>
             </div>
 
         </div>

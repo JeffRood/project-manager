@@ -4,7 +4,7 @@
         </div>
         <div class="navLinksContainer">
             <a (click)="navigateToProject('/project/list')">Proyectos</a>
-            <a (click)="navigateToProject('/project/user')">Accesos</a>
+            <a (click)="navigateToProject('/project/user')" *ngIf="isAdmin">Accesos</a>
             <a >Contactos</a>
         </div>
   

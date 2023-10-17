@@ -6,6 +6,20 @@
         <h2>User List</h2>
 
 
+
+
+
+
+
+   <div class="projectInfoBarContainer_AddProject"   (click)="openModal()" >
+   <div>
+        <h3>Add Users</h3>
+                <div class="addProjectIcon">
+                    <i class="fa fa-regular fa-plus"></i>
+                </div>
+   </div>
+            
+        </div>
 <table class="table">
   <thead>
     <tr>
@@ -15,8 +29,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of users">
-      <td>{{item.username}}</td>
+    <tr *ngFor="let item of users" (click)="pressToEdit(item)">
+      <td>{{item.fullName}}</td>
       <td>{{item.email}}</td>
       <td>{{item.role}}</td>
 
@@ -29,3 +43,52 @@
 
 
 
+
+
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ form.value.isEdit ? 'Edit User' : 'New User' }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="fullName" class="col-form-label">fullName:</label>
+            <input type="text" class="form-control" id="title" formControlName="fullName">
+          </div>
+    
+         <div class="mb-3">
+            <label for="role" class="col-form-label">role:</label>
+                <ng-select [items]="Roles" 
+                [formControlName]="'role'">
+                </ng-select>
+          </div>
+
+                <div class="mb-3">
+            <label for="email" class="col-form-label">email:</label>
+            <textarea class="form-control" id="email" formControlName="email"></textarea>
+          </div>
+
+             <div class="mb-3">
+            <label for="password" class="col-form-label">password:</label>
+            <textarea class="form-control" id="password" formControlName="password"></textarea>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button hidden id="closeModal" type="button"  data-bs-dismiss="modal"></button>
+        <button hidden id="openModal" data-bs-toggle="modal" data-bs-target="#userModal"></button>
+
+          
+        <button *ngIf="!form.get('isEdit')!.value" type="button" class="btn btn-primary" (click)="onSubmit()">Create user</button>
+        <button *ngIf="form.get('isEdit')!.value"  type="button" class="btn btn-primary" (click)="updateUser()">Edit user</button>
+        <button *ngIf="form.get('isEdit')!.value"  type="button" class="btn btn-danger" (click)="deletedUser()">Delete user</button>
+        <button  type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,16 +21,15 @@
 
 
 
-
-           <!-- <div class="dv-home_name">
-                  <label for="home_select_id">Users</label>
-                  <select name="home_select_project" id="home_select_id" multiple>
-                      <option *ngFor="let user of users" [value]="user.id">{{ user.username }}</option>
-                    <option value="option1">Opcion 1</option>
-                    <option value="option2">Opcion 2</option>
-                  </select>
-              </div> -->
-
+       <div class="mb-3">
+            <label for="role" class="col-form-label">Users:</label>
+                <ng-select [items]="users" 
+                    bindLabel="fullName" 
+                bindValue="id" 
+                [multiple]="true"
+                [formControlName]="'selectedUsers'">
+                </ng-select>
+          </div>
 
 
             <button class="btn-home_save_event" type="submit">Crear </button>

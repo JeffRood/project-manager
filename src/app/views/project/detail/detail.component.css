@@ -47,5 +47,10 @@
 .bodyContainerTabs{
     padding-top: 20px;
     width: 95%;
-    height: 100hv;
+    height: 70vh;
+}
+
+.dropdownConfig {
+    text-align: end;
+    margin-right: 5rem;
 }

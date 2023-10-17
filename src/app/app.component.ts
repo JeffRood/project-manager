@@ -15,9 +15,9 @@ export class AppComponent implements OnInit{
     const username = localStorage.getItem('username');
 
     if (username) {
-      this.router.navigate(['/login']);
-    } else {
       this.router.navigate(['/project']);
+    } else {
+      this.router.navigate(['/login']);
     }
   }
 }

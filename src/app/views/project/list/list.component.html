@@ -31,17 +31,25 @@
 
    
    
-       <div class="projectInfoBarContainer_AddProject" (click)="createProject()">
-                <h3>Add Project</h3>
+       <div class="projectInfoBarContainer_AddProject" (click)="createProject()" *ngIf="userLogged?.role == 'admin'" >
+                <h4>Add Project</h4>
                 <div class="addProjectIcon">
                     <i class="fa fa-regular fa-plus"></i>
                 </div>
         </div>
-     
-
             </div>
 
-            
+<div  class="searchContainer">
+           <form [formGroup]="searchForm" style="
+    display: flex;
+    justify-content: end;
+    margin-right: 5rem;">
+                <i class="fa fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar" formControlName="searchTerm" style=" width: 50%; padding: 0.5rem; border-radius: 20px; border: 1px solid #000; font-size: larger;">
+        </form>
+
+</div>
+
             <div class="bodyProjects">
 
              <div *ngFor="let project of listProject" (click)="navigateToProject(project.id)">

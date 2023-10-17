@@ -2,20 +2,22 @@
       <div class="bodyTablero">
                 <div class="todoContainer" cdkDropList [id]="'todo'" (cdkDropListDropped)="onTaskDrop($event)">
                     <div class="bodyTableroTitles">
-                        <h3>To do</h3>
-                        <div class="addContainer"  data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                            <i class="fa-solid fa-plus"></i>
+                        <h5>To do</h5>
+                        <div  class="addContainer" *ngIf="isAdmin" (click)="openModal()"  >
+                            <i class="fa fa-solid fa-plus"></i>
                         </div>
                     </div>
                    
-                    <div class="bodyTableroCard" *ngFor="let td of todo" cdkDrag [cdkDragData]="td.id">
-                        <div class="titlePriorityContainer">
-                            <h4>{{td.title}}</h4>
-                            <div class="cardPriorityMedia">Media</div>
+                    <div class="bodyTableroCard" *ngFor="let td of todo" (click)="pressToEdit(td)" cdkDrag [cdkDragData]="td.id">
+                        <div class="titlePriorityContainer" >
+                            <h5>{{td.title}}</h5>
+                            <div *ngIf="td?.priority! == 1" class="cardPriorityBaja">{{getPriority(td?.priority!)}}</div>
+                            <div *ngIf="td?.priority! == 2" class="cardPriorityMedia">{{getPriority(td?.priority!)}}</div>
+                            <div *ngIf="td?.priority! == 3" class="cardPriorityAlta">{{getPriority(td?.priority!)}}</div>
                         </div>
                         <div class="cardCreated">
                             <p class="asignadaDateTitles">Asignada: </p>
-                            <p>Jeffry Rodriguez</p>
+                            <p>{{getFullName(td?.assignedTo!)}}</p>
                         </div>
                         <div class="cardDate">
                             <p class="asignadaDateTitles">Fecha creacion: </p>
@@ -26,16 +28,18 @@
                 </div>
                 <div class="inProgressContainer" cdkDropList [id]="'inprogress'" (cdkDropListDropped)="onTaskDrop($event)">
                     <div class="bodyTableroTitles">
-                        <h3>In progress</h3>
+                        <h5>In progress</h5>
                     </div>
-               <div class="bodyTableroCard" *ngFor="let pg of inProgress" cdkDrag [cdkDragData]="pg.id">
+               <div class="bodyTableroCard" *ngFor="let pg of inProgress" (click)="pressToEdit(pg)" cdkDrag [cdkDragData]="pg.id">
                         <div class="titlePriorityContainer">
-                            <h4>{{pg.title}}</h4>
-                            <div class="cardPriorityMedia">Media</div>
+                            <h5>{{pg.title}}</h5>
+                              <div *ngIf="pg?.priority! == 1" class="cardPriorityBaja">{{getPriority(pg?.priority!)}}</div>
+                            <div *ngIf="pg?.priority! == 2" class="cardPriorityMedia">{{getPriority(pg?.priority!)}}</div>
+                            <div *ngIf="pg?.priority! == 3" class="cardPriorityAlta">{{getPriority(pg?.priority!)}}</div>
                         </div>
                         <div class="cardCreated">
                             <p class="asignadaDateTitles">Asignada: </p>
-                            <p>Jeffry Rodriguez</p>
+                            <p>{{getFullName(pg?.assignedTo!)}}</p>
                         </div>
                         <div class="cardDate">
                             <p class="asignadaDateTitles">Fecha creacion: </p>
@@ -45,16 +49,18 @@
                 </div>
                 <div class="closedContainer" cdkDropList [id]="'closed'" (cdkDropListDropped)="onTaskDrop($event)">
                     <div class="bodyTableroTitles">
-                        <h3>Closed</h3>
+                        <h5>Closed</h5>
                             </div>
-             <div class="bodyTableroCard" *ngFor="let cs of Closed" cdkDrag [cdkDragData]="cs.id">
+             <div class="bodyTableroCard" *ngFor="let cs of Closed" (click)="pressToEdit(cs)" cdkDrag [cdkDragData]="cs.id">
                         <div class="titlePriorityContainer">
-                            <h4>{{cs.title}}</h4>
-                            <div class="cardPriorityMedia">Media</div>
+                            <h5>{{cs.title}}</h5>
+                              <div *ngIf="cs?.priority! == 1" class="cardPriorityBaja">{{getPriority(cs?.priority!)}}</div>
+                            <div *ngIf="cs?.priority! == 2" class="cardPriorityMedia">{{getPriority(cs?.priority!)}}</div>
+                            <div *ngIf="cs?.priority! == 3" class="cardPriorityAlta">{{getPriority(cs?.priority!)}}</div>
                         </div>
                         <div class="cardCreated">
                             <p class="asignadaDateTitles">Asignada: </p>
-                            <p>Jeffry Rodriguez</p>
+                            <p>{{getFullName(cs?.assignedTo!)}}</p>
                         </div>
                         <div class="cardDate">
                             <p class="asignadaDateTitles">Fecha creacion: </p>
@@ -65,16 +71,18 @@
               
                 <div class="frozenContainer" cdkDropList [id]="'frozen'" (cdkDropListDropped)="onTaskDrop($event)">
                     <div class="bodyTableroTitles">
-                        <h3>Frozen</h3>
+                        <h5>Frozen</h5>
                     </div>
-                 <div class="bodyTableroCard" *ngFor="let fz of Frozen" cdkDrag [cdkDragData]="fz.id">
+                 <div class="bodyTableroCard"  *ngFor="let fz of Frozen" (click)="pressToEdit(fz)" cdkDrag [cdkDragData]="fz.id">
                         <div class="titlePriorityContainer">
-                            <h4>{{fz.title}}</h4>
-                            <div class="cardPriorityMedia">Media</div>
+                            <h5>{{fz.title}}</h5>
+                            <div *ngIf="fz?.priority! == 1" class="cardPriorityBaja">{{getPriority(fz?.priority!)}}</div>
+                            <div *ngIf="fz?.priority! == 2" class="cardPriorityMedia">{{getPriority(fz?.priority!)}}</div>
+                            <div *ngIf="fz?.priority! == 3" class="cardPriorityAlta">{{getPriority(fz?.priority!)}}</div>
                         </div>
                         <div class="cardCreated">
                             <p class="asignadaDateTitles">Asignada: </p>
-                            <p>Jeffry Rodriguez</p>
+                            <p>{{getFullName(fz?.assignedTo!)}}</p>
                         </div>
                         <div class="cardDate">
                             <p class="asignadaDateTitles">Fecha creacion: </p>
@@ -87,51 +95,57 @@
     </div> 
 
 
+
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New Task</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ form.get('isEdit')?.value ? 'Edit Task' : 'New Task' }}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="title" class="col-form-label">Title:</label>
-            <input type="text" class="form-control" id="title" formControlName="title">
+            <input type="text" class="form-control" id="title" [ngClass]="{ 'is-invalid': form.get('title')?.hasError('required') && form.get('title')?.touched }" formControlName="title">
+            <div *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched" class="text-danger">
+              Title is required.
+            </div>
           </div>
           <div class="mb-3">
             <label for="description" class="col-form-label">Description:</label>
-            <textarea class="form-control" id="description" formControlName="description"></textarea>
+            <textarea class="form-control" id="description" [ngClass]="{ 'is-invalid': form.get('description')?.hasError('required') && form.get('description')?.touched }" formControlName="description"></textarea>
+            <div *ngIf="form.get('description')?.hasError('required') && form.get('description')?.touched" class="text-danger">
+              Description is required.
+            </div>
           </div>
 
-         <div class="mb-3">
-            <label for="description" class="col-form-label">Priority:</label>
-                <ng-select [items]="priorityList" 
-                bindLabel="name" 
-                bindValue="id" 
-                [formControlName]="'priority'">
-                </ng-select>
+          <div class="mb-3">
+            <label for="priority" class="col-form-label">Priority:</label>
+            <ng-select [items]="priorityList" bindLabel="name" bindValue="id" formControlName="priority" [ngClass]="{ 'is-invalid': form.get('priority')?.hasError('required') && form.get('priority')?.touched }"></ng-select>
+            <div *ngIf="form.get('priority')?.hasError('required') && form.get('priority')?.touched" class="text-danger">
+              Priority is required.
+            </div>
           </div>
 
-                <div class="mb-3">
-            <label for="description" class="col-form-label">Users:</label>
-                <ng-select [items]="memberProjectList" 
-                bindLabel="fullName" 
-                bindValue="id" 
-                [multiple]="true"
-                [formControlName]="'assignedTo'">
-                </ng-select>
+          <div class="mb-3">
+            <label for="assignedTo" class="col-form-label">Users:</label>
+            <ng-select [items]="memberProjectList" bindLabel="fullName" bindValue="id" [multiple]="true" [ngClass]="{ 'is-invalid': form.get('assignedTo')?.hasError('required') && form.get('assignedTo')?.touched }" formControlName="assignedTo"></ng-select>
+            <div *ngIf="form.get('assignedTo')?.hasError('required') && form.get('assignedTo')?.touched" class="text-danger">
+              Users are required.
+            </div>
           </div>
-          
         </form>
       </div>
       <div class="modal-footer">
-        <button id="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button *ngIf="!form.get('isEdit')!.value" type="button" class="btn btn-primary" (click)="onSubmit()">Create Task</button>
-        <button *ngIf="form.get('isEdit')!.value"  type="button" class="btn btn-primary" (click)="onSubmit()">Edit Task</button>
-        <button *ngIf="form.get('isEdit')!.value"  type="button" class="btn btn-danger" (click)="onSubmit()">Delete Task</button>
-
+        <button hidden id="closeModal" type="button" data-bs-dismiss="modal"></button>
+        <button hidden id="openModal" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        <button *ngIf="!form.get('isEdit')?.value && isAdmin" type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="form.invalid">Create Task</button>
+        <button *ngIf="form.get('isEdit')?.value && isAdmin" type="button" class="btn btn-primary" (click)="callUpdateTask()" [disabled]="form.invalid">Edit Task</button>
+        <button *ngIf="form.get('isEdit')?.value && isAdmin" type="button" class="btn btn-danger" (click)="deletedTask()">Delete Task</button>
       </div>
     </div>
   </div>

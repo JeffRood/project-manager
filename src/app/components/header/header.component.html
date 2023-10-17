@@ -3,8 +3,14 @@
             <div class="happyFaceContainer">
                 <i class="fa fa-regular fa-face-smile"></i>
             </div>
-            <div class="userNameContainer">
-                <a href="">Jeffry Rodriguez</a>
-                <i class="fa fa-solid fa-caret-down" style="padding-left: 5px;"></i>
-            </div>
-        </div>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{userLogged?.fullName}}
+        </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" (click)="singOut()">Cerrar Sesión</a>
+  </div>
+</div>
+        
+          
