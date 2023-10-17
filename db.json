@@ -10,61 +10,7 @@
         1
       ],
       "status": 1,
-      "tasks": [
-        {
-          "id": 2,
-          "title": "Segunda Tarea 2",
-          "description": "Esta es la primera tarea",
-          "createdDate": "2023-10-13T10:00:00.000Z",
-          "assignedTo": null,
-          "status": 1,
-          "priority": 1
-        },
-        {
-          "id": 6261865,
-          "title": "tarea",
-          "description": "primera tarea",
-          "createdDate": null,
-          "assignedTo": [
-            1
-          ],
-          "status": null,
-          "priority": 1
-        },
-        {
-          "id": 2284010,
-          "title": "valor",
-          "description": "valor",
-          "createdDate": null,
-          "assignedTo": [
-            1
-          ],
-          "status": null,
-          "priority": 2
-        },
-        {
-          "id": 7781904,
-          "title": "valor",
-          "description": "ojafos",
-          "createdDate": "2023-10-16T20:42:57.126Z",
-          "assignedTo": [
-            1
-          ],
-          "status": 2,
-          "priority": 2
-        },
-        {
-          "id": 3029783,
-          "title": "jesus",
-          "description": "jesus",
-          "createdDate": "2023-10-17T01:50:08.900Z",
-          "assignedTo": [
-            1
-          ],
-          "status": 1,
-          "priority": 3
-        }
-      ]
+      "tasks": []
     },
     {
       "name": "Proyecto veloster",
@@ -76,7 +22,19 @@
       "id": 718669,
       "createdBy": 1,
       "status": 1,
-      "tasks": []
+      "tasks": [
+        {
+          "id": 3509738,
+          "title": "first",
+          "description": "first",
+          "createdDate": "2023-10-17T02:29:28.783Z",
+          "assignedTo": [
+            1
+          ],
+          "status": 3,
+          "priority": 2
+        }
+      ]
     }
   ],
   "roles": [
